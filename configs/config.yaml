@@ -1,0 +1,47 @@
+# Name of the task to run. Options: [Reach, Track, Lift, PickPlace, Stack, Lift_BC, PickPlace_BC, TransferReach, TransferLift, TransferPickPlace]
+task: PickPlace
+
+# Whether to run on xarm or robosuite. Options: [xarm, robosuite]
+run_env: robosuite
+
+# Whether to use real xarm or the simulated version in xarm studio. This only matters when run_env is xarm.
+simulated: True
+
+# Whether to visualize robosuite episodes. This only matters when run_env is robosuite.
+render: True
+
+# Number of task episodes to run
+num_episodes: 4
+
+# Whether to save observations for debugging via compare_xarm_robosuite.py
+save_obs: False
+
+# Task-specific cube detection offsets. This usually needs to be tuned after camera calibration.
+camera_cube_offset:
+  Reach: [0, 0, 0.05]
+  Track: [0, 0, 0]
+  Lift: [-0.02, 0.015, 0.07]
+  PickPlace: [-0.04, 0.015, 0.07]
+  Stack: [-0.025, 0, 0.0365] 
+  TransferReach: [-0.017, 0.015, 0.07]
+  TransferTrack: [0, 0, 0.05]
+  TransferLift: [-0.02, 0.015, 0.07]
+  TransferPickPlace: [-0.04, 0.02, 0.07]
+
+# Object pointcloud model file to be used for orientation estimation. 
+model_path: /home/erl-tianyu/xArm_robosuite/printed_cube_model.ply
+
+# For VR teleoperation
+teleoperation:
+  active_eef_axes: [0, 0, 1]
+
+# Quick reference: Cube positions for real experiments -
+# Lift      : [0.407, 0, -0.095], 
+# PickPlace : [0.6, -0.15, -0.067],
+# Stack     : [0.56, 0, -0.112]}
+
+# Tianyu
+# Quick reference: Cube positions for real experiments -
+# Lift      : [0.407, 0, -0.145], 
+# PickPlace : [0.407, -0.15, -0.138],
+# Stack     : [0.56, 0, -0.112]}
